@@ -49,20 +49,18 @@
  *          content
  */
 
-/*!!!*/
+/*!!! quotes FIX*/
 function magic_quotes_gpc_off() {
-if (!get_magic_quotes_gpc()) {
-return;
-}
-function array_stripslashes($array) {
-return is_array($array) ? array_map("array_stripslashes", $array) : stripslashes($array);
-}
-$_GET = array_stripslashes($_GET);
-$_POST = array_stripslashes($_POST);
-$_COOKIE = array_stripslashes($_COOKIE);
+  if (!get_magic_quotes_gpc()) {return;}
+    function array_stripslashes($array) {
+    return is_array($array) ? array_map("array_stripslashes", $array) : stripslashes($array);
+  }
+  $_GET = array_stripslashes($_GET);
+  $_POST = array_stripslashes($_POST);
+  $_COOKIE = array_stripslashes($_COOKIE);
 }
 magic_quotes_gpc_off();
-/**/
+/*!!! end quotes FIX*/
 // get start time
 $mtime = microtime(); $mtime = explode(" ",$mtime); $mtime = $mtime[1] + $mtime[0]; $tstart = $mtime;
 
